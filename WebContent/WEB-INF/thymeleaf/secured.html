@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head lang="es">
+	<meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Secured page</title>
+    
+    <!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="css/bootstrap.min.css"/>
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="css/bootstrap-theme.min.css"/>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+	<h1>ROLE_ADMIN secured page</h1>
+	<form action="#" method="post" th:action="@{/logout.action}"><p><input type="submit" th:value="#{logout}"/></p></form>
+	<p>Locale: <span th:text="${#locale}">El locale que sea</span></p>
+	<p sec:authorize="isAuthenticated()">User: <span th:text="${#authentication.name}">El usuario autentificado</span></p>
+</body>
+</html>

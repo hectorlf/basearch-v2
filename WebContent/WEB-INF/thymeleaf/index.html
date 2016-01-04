@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+	<meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Base architecture</title>
+    
+    <!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="css/bootstrap.min.css"/>
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="css/bootstrap-theme.min.css"/>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+	<h1>Base architecture</h1>
+	<h2 th:text="#{welcome}">Texto de bienvenida localizado</h2>
+	<p><a href="#" th:href="@{/secured.page}">/secured.page</a> user/pass: admin/admin - user/user</p>
+	<p>Locale: <span th:text="${#locale}">El locale que sea</span></p>
+	<p sec:authorize="isAuthenticated()">User: <span th:text="${#authentication.name}">El usuario autentificado</span></p>
+</body>
+</html>

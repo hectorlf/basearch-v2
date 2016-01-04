@@ -1,0 +1,13 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <title th:text="#{login.notauthorized}">No autorizado</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <h1 th:text="#{login.notauthorizedexplained}">No tiene los permisos necesarios para acceder a ese recurso</h1>
+    <form action="#" method="post" th:action="@{/logout.action}"><p><input type="submit" th:value="#{logout}"/></p></form>
+    <p>Locale: <span th:text="${#locale}">El locale que sea</span></p>
+	<p sec:authorize="isAuthenticated()">User: <span th:text="${#authentication.name}">El usuario autentificado</span></p>
+</body>
+</html>
